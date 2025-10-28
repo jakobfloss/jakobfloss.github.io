@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Software Developer — CV</title>
+  <style>
+    /* --- Reset & base --- */
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --accent:#0b74de; --muted:#6b7280; --glass:rgba(11,116,222,0.06);
+      --max-width:900px;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--sans);background:var(--bg);color:#111}
+    a{color:var(--accent);text-decoration:none}
+
+    /* --- Layout --- */
+    .wrap{max-width:var(--max-width);margin:32px auto;padding:28px}
+    .card{background:var(--card);border-radius:14px;display:grid;grid-template-columns:280px 1fr;gap:28px;padding:28px;box-shadow:0 6px 22px rgba(2,6,23,0.06)}
+
+    /* --- Left column (sidebar) --- */
+    .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--glass),transparent);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .avatar svg{width:70%;height:70%;opacity:0.9}
+    h1{font-size:22px;margin:0 0 6px}
+    .role{font-weight:600;color:var(--accent);font-size:13px;margin-bottom:6px}
+    .location{font-size:13px;color:var(--muted)}
+    .contact{width:100%;margin-top:18px}
+    .contact p{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px;color:#111}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);font-size:12px;margin:6px 6px 0}
+
+    /* --- Right column --- */
+    .section{margin-bottom:18px}
+    .section h2{font-size:14px;margin:0 0 12px;letter-spacing:0.3px}
+    .summary{font-size:14px;line-height:1.5;color:#222}
+
+    /* Experience */
+    .exp-item{padding:12px;border-radius:10px;background:linear-gradient(180deg,transparent,rgba(2,6,23,0.02));margin-bottom:10px}
+    .exp-item h3{margin:0;font-size:15px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .bullets{margin:8px 0 0;padding-left:18px}
+
+    /* Skills & tech */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#eef6ff;border-radius:999px;padding:6px 10px;font-size:13px}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .project{padding:12px;border-radius:10px;background:#fbfdff}
+    .project h4{margin:0 0 6px;font-size:14px}
+    .project p{margin:0;font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    .print-note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+
+    /* Responsive */
+    @media(max-width:800px){
+      .card{grid-template-columns:1fr;}
+      .profile{flex-direction:row;align-items:center;text-align:left;gap:14px}
+      .avatar{width:84px;height:84px}
+    }
+
+    /* Print */
+    @media print{
+      body{background:white}
+      .wrap{margin:0;padding:0}
+      .card{box-shadow:none;border-radius:0;grid-template-columns:1fr}
+      a:after{content: " (" attr(href) ")"}
+    }
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="document">
+      <!-- LEFT: Sidebar -->
+      <aside class="profile" aria-label="Sidebar with contact and skills">
+        <div class="avatar" aria-hidden="true">
+          <!-- simple SVG avatar placeholder -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#e6f2ff"/><path d="M12 12.5a3 3 0 100-6 3 3 0 000 6z" fill="#0b74de" opacity="0.95"/><path d="M4 20a8 8 0 0116 0" stroke="#0b74de" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/></svg>
+        </div>
+        <div>
+          <h1 id="name">Your Name</h1>
+          <div class="role">Senior Software Developer</div>
+          <div class="location muted">Vienna, Austria • Open to remote</div>
+        </div>
+
+        <div class="contact">
+          <p><strong>Email:</strong> <span class="muted">youremail@example.com</span></p>
+          <p><strong>Phone:</strong> <span class="muted">+43 699 123 4567</span></p>
+          <p><strong>Website:</strong> <a href="#">your-website.dev</a></p>
+          <p><strong>GitHub:</strong> <a href="#">github.com/yourusername</a></p>
+          <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourname</a></p>
+        </div>
+
+        <div style="width:100%;margin-top:14px">
+          <div class="chip">Availability: Immediate</div>
+          <div class="chip">Visa: EU</div>
+        </div>
+
+        <div style="margin-top:18px;width:100%">
+          <h2 style="font-size:13px;margin:0 0 8px">Tech stack</h2>
+          <div class="skills" aria-hidden="true">
+            <div class="skill">JavaScript (ES6+)</div>
+            <div class="skill">TypeScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Python</div>
+            <div class="skill">Docker</div>
+            <div class="skill">Kubernetes</div>
+            <div class="skill">Postgres</div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT: Main content -->
+      <main>
+        <section class="section summary">
+          <h2>Profile</h2>
+          <p class="summary">Experienced software developer with a strong background in building scalable web applications and services. Passionate about clean architecture, automated testing and developer experience. Interested in cloud-native platforms and mentoring engineering teams.</p>
+        </section>
+
+        <section class="section">
+          <h2>Professional Experience</h2>
+
+          <article class="exp-item">
+            <h3>Senior Software Engineer — Acme Corp</h3>
+            <div class="meta">Apr 2021 — Present · Vienna, Austria</div>
+            <ul class="bullets">
+              <li>Led a team of 4 engineers in designing and shipping a microservices-based platform serving 200k+ monthly active users.</li>
+              <li>Designed APIs and implemented features in TypeScript (Node.js) and React, reducing page load times by 35%.</li>
+              <li>Introduced CI/CD with GitHub Actions and Docker, shortening release cycles from weekly to daily.</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <h3>Software Engineer — Beta Systems</h3>
+            <div class="meta">Jan 2018 — Mar 2021 · Remote</div>
+            <ul class="bullets">
+              <li>Built data-processing pipelines in Python and improved ETL throughput by 4x using async workers.</li>
+              <li>Collaborated with product and QA to create test plans and increase automated coverage to 70%.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="section">
+          <h2>Selected Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <h4>Realtime Analytics Dashboard</h4>
+              <p>React + WebSockets frontend with a Node.js backend, used by operations to monitor system health.</p>
+            </div>
+            <div class="project">
+              <h4>Payments Integration</h4>
+              <p>Designed and implemented PCI-compliant payments microservice and migration plan for legacy provider.</p>
+            </div>
+            <div class="project">
+              <h4>Open-source CLI tool</h4>
+              <p>Maintainer of a small CLI published on npm with 2k+ weekly downloads; wrote docs and CI pipeline.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Education & Certifications</h2>
+          <div class="exp-item" style="background:transparent;padding:0">
+            <div class="meta">MSc Computer Science — Technical University (2016)</div>
+            <div class="meta">Certified Kubernetes Application Developer (CKAD) — 2022</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Other Skills</h2>
+          <p class="muted">TDD, DDD, REST & GraphQL, Agile (Scrum/Kanban), Observability (Prometheus, Grafana), Cloud (AWS/GCP), CI/CD</p>
+        </section>
+
+        <section class="section">
+          <h2>Languages</h2>
+          <p class="muted">English (native), German (B2)</p>
+        </section>
+
+        <div class="print-note">Tip: press <strong>Ctrl/Cmd + P</strong> to print or save as PDF. Replace placeholder text with your details.</div>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>
